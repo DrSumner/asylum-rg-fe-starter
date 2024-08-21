@@ -61,7 +61,7 @@ function RenderLandingPage(props) {
         <Button
           type="default"
           style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
-          onClick={() => history.push('/notfound')}
+          href='https://humanrightsfirst.org/wp-content/uploads/2022/10/COW2021001887-I589Data.csv'
         >
           Download the Data
         </Button>
@@ -130,7 +130,8 @@ function RenderLandingPage(props) {
           <Button
           type="default"
           style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
-          onClick={() => history.push('/notfound')}
+          href='https://humanrightsfirst.org/library/uscis-records-reveal-systemic-disparities-in-asylum-decisions/'
+          target='_blank'
           >
           Read More
         </Button>
