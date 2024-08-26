@@ -73,7 +73,9 @@ function GraphWrapper(props) {
     
     */
     const api = "https://hrf-asylum-be-b.herokuapp.com/cases";
-    if (office === 'all' || !office) {
+    const data = [];
+   
+      if (office === 'all' || !office) {
       axios
         .get(`${api}/fiscalSummary`, {
           // mock URL, can be simply replaced by `${Real_Production_URL}/summary` in prod!
@@ -83,12 +85,26 @@ function GraphWrapper(props) {
           },
         })
         .then(result => {
-          console.log(result);
+          //console.log(result);
           //console.log(result.data);
-          console.log(test_data);
-          const data = [result.data];
-          console.log(data);
-          stateSettingCallback(view, office, data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
+          //console.log(test_data);
+          data.push(result.data);
+         // console.log(data);
+          //stateSettingCallback(view, office, data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
+          return axios.get(`${api}/citizenshipSummary`, {
+            params: {
+              from: years[0],
+              to: years[1],
+            },
+          });
+        })
+        .then(result2 => {
+          //console.log(result2);
+          //console.log(result.data);
+          //console.log(test_data);
+          data[0].citizenshipResults = result2.data;
+          //console.log(data);
+          stateSettingCallback(view, office, data);
         })
         .catch(err => {
           console.error(err);
@@ -104,17 +120,34 @@ function GraphWrapper(props) {
           },
         })
         .then(result => {
-          console.log(result);
+          //console.log(result);
           //console.log(result.data);
-          console.log(test_data);
-          const data = [result.data];
-          console.log(data);
-          stateSettingCallback(view, office, data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
+          //console.log(test_data);
+          data.push(result.data);
+         // console.log(data);
+          //stateSettingCallback(view, office, data); // <-- `test_data` here can be simply replaced by `result.data` in prod!
+          return axios.get(`${api}/citizenshipSummary`, {
+            params: {
+              from: years[0],
+              to: years[1],
+              office: office,
+            },
+          });
+        })
+        .then(result2 => {
+         // console.log(result2);
+          //console.log(result.data);
+          //console.log(test_data);
+          data[0].citizenshipResults = result2.data;
+         // console.log(data);
+          stateSettingCallback(view, office, data);
         })
         .catch(err => {
           console.error(err);
-        });
+        });   
     }
+  
+  
   }
   const clearQuery = (view, office) => {
     dispatch(resetVisualizationQuery(view, office));
