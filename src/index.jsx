@@ -26,6 +26,8 @@ import { colors } from './styles/data_vis_colors';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Auth0ProviderWithHistory from './auth0-provider-with-history';
+import { useAuth0 } from '@auth0/auth0-react';
+import Loading from './components/pages/loading/loading';
 
 const { primary_accent_color } = colors;
 
@@ -45,6 +47,11 @@ ReactDOM.render(
 
 export function App() {
   const { Footer, Header } = Layout;
+  const {isLoading} = useAuth0();
+
+  if(isLoading){
+    return <Loading/>;
+  }
   return (
     <Layout>
       <Header
