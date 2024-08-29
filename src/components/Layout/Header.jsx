@@ -37,12 +37,12 @@ function HeaderContent() {
           Graphs
         </Link>
         {isAuthenticated && 
-        <Link to="/profile" style={{ color: '#E2F0F7', paddingLeft: '75px' }}>
+        <Link to="/profile" style={{ color: '#E2F0F7', paddingright: '75px' }}>
           My Profile
         </Link>
         }
-        {isAuthenticated ? <LogoutButton /> : <LoginButton/>}    
       </div>
+        {isAuthenticated ? <LogoutButton /> : <LoginButton/>}    
     </div>
   );
 }
