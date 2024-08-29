@@ -3,6 +3,7 @@ Tasks todo :
 2. create the profilePage.jsx as described -> Done
 3. edit the navigation menu to include a login/logout button -> Done
 --- once designing is complete, add the functionality. ---
-4. Add state to track if user in logged in, and access level => incomplete
-4. Intergrate the Auth0 microservice into the project -> incomplete
-5. go back and complete the pages -> incomplete
+4. Add state to track if user in logged in, and access level => Done
+5. Intergrate the Auth0 microservice into the project -> incomplete
+6. update state when user logs in and out -> incomplete
+6. go back and complete the pages -> incomplete

@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
 import vizReducer from './vizReducer';
-import authReducer from './AuthReducer';
+import authReducer from './authReducer';
 
 export default combineReducers({
-  vizReducer, authReducer,
+  vizReducer, 
+  auth: authReducer,
 });
